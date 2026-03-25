@@ -1,0 +1,36 @@
+[project]
+# Substitua pelo seu project_id do Supabase
+id = "your-project-id"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+
+[db]
+port = 54322
+major_version = 15
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = []
+jwt_expiry = 3600
+enable_refresh_token_rotation = true
+refresh_token_reuse_interval = 10
+enable_signup = true
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+enable_confirmations = true
+
+[functions.webhook-hotmart]
+verify_jwt = false   # webhook não tem JWT, usa x-hotmart-hottok
+
+[functions.webhook-meta]
+verify_jwt = false   # webhook não tem JWT, usa x-webhook-secret
+
+[functions.webhook-google]
+verify_jwt = false   # webhook não tem JWT, usa x-webhook-secret
